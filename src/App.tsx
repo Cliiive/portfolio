@@ -45,9 +45,9 @@ const developmentProjects: Project[] = [
       </>
     ),
     tags: [
-      { text: "React", color: "bg-blue-600/30" },
-      { text: "TypeScript", color: "bg-purple-600/30" },
-      { text: "Tailwind", color: "bg-green-600/30" },
+      { text: "React", color: "bg-blue-800/30" },
+      { text: "TypeScript", color: "bg-blue-700/30" },
+      { text: "Tailwind", color: "bg-blue-600/30" },
     ],
     isReversed: false,
   },
@@ -73,7 +73,7 @@ const developmentProjects: Project[] = [
       scale: 1.02,
       glassOpacity: 0.2,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-blue-500/20 to-indigo-500/20",
+      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
     },
     isReversed: true,
   },
@@ -101,7 +101,7 @@ const developmentProjects: Project[] = [
       scale: 1.03,
       glassOpacity: 0.15,
       glassBlur: 10,
-      className: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10",
+      className: "bg-gradient-to-br from-blue-900/10 to-blue-800/10",
     },
     isReversed: false,
   },
@@ -117,15 +117,15 @@ const artProjects: Project[] = [
       <>
         <h2 className="text-xl font-bold mb-4">Fantasy Character</h2>
         <div className="flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-pink-500/30 to-purple-500/30 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-800/30 to-purple-700/30 rounded-full flex items-center justify-center">
             <span className="text-2xl">���</span>
           </div>
         </div>
       </>
     ),
     tags: [
-      { text: "Blender", color: "bg-orange-600/30" },
-      { text: "Character Design", color: "bg-pink-600/30" },
+      { text: "Blender", color: "bg-purple-800/30" },
+      { text: "Character Design", color: "bg-purple-700/30" },
       { text: "Texturing", color: "bg-purple-600/30" },
     ],
     containerProps: {
@@ -133,7 +133,7 @@ const artProjects: Project[] = [
       scale: 1.02,
       glassOpacity: 0.2,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-pink-500/20 to-purple-500/20",
+      className: "bg-gradient-to-br from-purple-900/20 to-purple-800/20",
     },
     isReversed: false,
   },
@@ -145,7 +145,7 @@ const artProjects: Project[] = [
       <>
         <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
         <div className="flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-purple-500/30 to-indigo-500/30 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-800/30 to-purple-700/30 rounded-full flex items-center justify-center">
             <span className="text-2xl">���</span>
           </div>
         </div>

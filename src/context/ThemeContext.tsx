@@ -23,22 +23,22 @@ interface ThemeSettings {
 // Create the theme settings object
 const themeSettings: ThemeSettings = {
   development: {
-    primary: "from-slate-900 to-gray-900",
+    primary: "from-slate-950 to-blue-950",
     secondary: "text-blue-400 hover:text-blue-300",
-    accent: "border-blue-500",
-    background: "bg-gradient-to-br from-slate-900 to-gray-900",
+    accent: "border-blue-600",
+    background: "bg-gradient-to-br from-slate-950 to-blue-950",
     text: "text-gray-300",
-    cardBg: "from-blue-500/10 to-indigo-500/10",
-    tagBg: "bg-blue-600/30",
+    cardBg: "from-blue-900/10 to-blue-800/10",
+    tagBg: "bg-blue-800/30",
   },
   "3d-art": {
-    primary: "from-purple-900 to-pink-900",
+    primary: "from-purple-950 to-purple-900",
     secondary: "text-purple-400 hover:text-purple-300",
-    accent: "border-pink-500",
-    background: "bg-gradient-to-br from-purple-900 to-pink-900",
+    accent: "border-purple-600",
+    background: "bg-gradient-to-br from-purple-950 to-purple-900",
     text: "text-gray-200",
-    cardBg: "from-pink-500/10 to-purple-500/10",
-    tagBg: "bg-pink-600/30",
+    cardBg: "from-purple-900/10 to-purple-800/10",
+    tagBg: "bg-purple-800/30",
   },
 };
 

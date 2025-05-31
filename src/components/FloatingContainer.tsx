@@ -75,13 +75,14 @@ const FloatingContainer = ({
         ...(tiltStyle as React.CSSProperties),
         backdropFilter: `blur(${glassBlur}px)`,
         backgroundColor: `rgba(255, 255, 255, ${glassOpacity})`,
+        borderRadius: "0.75rem", // Ensuring corners remain rounded
       }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
     >
       {/* Subtle inner glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 pointer-events-none" />
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 p-6 h-full">{children}</div>

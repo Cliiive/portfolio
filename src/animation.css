@@ -1,15 +1,5 @@
-/* Theme transition animation */
-@keyframes backgroundTransition {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+/* Theme transition animation - REMOVED */
+/* We're keeping the dark colors but removing the animations */
 
 /* Pulse animation for active tab */
 @keyframes gentlePulse {
@@ -33,12 +23,6 @@
 .project-container-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Animated background for sections */
-.animated-bg {
-  background-size: 400% 400%;
-  animation: backgroundTransition 15s ease infinite;
 }
 
 /* Staggered animation delays */

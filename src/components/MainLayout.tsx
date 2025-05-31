@@ -14,10 +14,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     // Update background class based on theme
     setBgClass(colors.background);
   }, [theme, colors]);
-
   return (
     <div
-      className={`min-h-screen p-4 md:p-8 lg:p-12 ${bgClass} transition-colors duration-700 animated-bg`}
+      className={`min-h-screen p-4 md:p-8 lg:p-12 ${bgClass} transition-colors duration-700`}
     >
       <header className="mb-12 md:mb-16 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
