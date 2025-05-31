@@ -49,16 +49,16 @@ const developmentProjects: Project[] = [
       </>
     ),
     tags: [
-      { text: "React", color: "bg-blue-800/30" },
-      { text: "TypeScript", color: "bg-blue-700/30" },
-      { text: "Tailwind", color: "bg-blue-600/30" },
+      { text: "React", color: "bg-blue-950/30" },
+      { text: "TypeScript", color: "bg-blue-900/30" },
+      { text: "Tailwind", color: "bg-blue-800/30" },
     ],
     containerProps: {
       maxTilt: 12,
       scale: 1.05,
-      glassOpacity: 0.2,
+      glassOpacity: 0.15,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
+      className: "bg-gradient-to-br from-slate-950/15 to-blue-950/15",
     },
     isReversed: false,
   },
@@ -82,9 +82,9 @@ const developmentProjects: Project[] = [
     containerProps: {
       maxTilt: 12,
       scale: 1.05,
-      glassOpacity: 0.2,
+      glassOpacity: 0.15,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
+      className: "bg-gradient-to-br from-slate-950/15 to-blue-950/15",
     },
     isReversed: true,
   },
@@ -103,16 +103,16 @@ const developmentProjects: Project[] = [
       </>
     ),
     tags: [
-      { text: "Next.js", color: "bg-indigo-600/30" },
-      { text: "Node.js", color: "bg-green-600/30" },
-      { text: "MongoDB", color: "bg-orange-600/30" },
+      { text: "Next.js", color: "bg-blue-950/30" },
+      { text: "Node.js", color: "bg-blue-900/30" },
+      { text: "MongoDB", color: "bg-blue-800/30" },
     ],
     containerProps: {
       maxTilt: 12,
       scale: 1.05,
-      glassOpacity: 0.2,
+      glassOpacity: 0.15,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
+      className: "bg-gradient-to-br from-slate-950/15 to-blue-950/15",
     },
     isReversed: false,
   },
@@ -128,23 +128,23 @@ const artProjects: Project[] = [
       <>
         <h2 className="text-xl font-bold mb-4">Fantasy Character</h2>
         <div className="flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-purple-800/30 to-purple-700/30 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-950/30 to-indigo-950/30 rounded-full flex items-center justify-center">
             <span className="text-2xl">���</span>
           </div>
         </div>
       </>
     ),
     tags: [
-      { text: "Blender", color: "bg-purple-800/30" },
-      { text: "Character Design", color: "bg-purple-700/30" },
-      { text: "Texturing", color: "bg-purple-600/30" },
+      { text: "Blender", color: "bg-purple-950/30" },
+      { text: "Character Design", color: "bg-purple-900/30" },
+      { text: "Texturing", color: "bg-indigo-900/30" },
     ],
     containerProps: {
       maxTilt: 15,
       scale: 1.02,
-      glassOpacity: 0.2,
+      glassOpacity: 0.15,
       glassBlur: 12,
-      className: "bg-gradient-to-br from-purple-900/20 to-purple-800/20",
+      className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
     },
     isReversed: false,
   },
@@ -156,23 +156,23 @@ const artProjects: Project[] = [
       <>
         <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
         <div className="flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-purple-800/30 to-purple-700/30 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-950/30 to-indigo-950/30 rounded-full flex items-center justify-center">
             <span className="text-2xl">���</span>
           </div>
         </div>
       </>
     ),
     tags: [
-      { text: "Maya", color: "bg-blue-600/30" },
-      { text: "Environment Art", color: "bg-indigo-600/30" },
-      { text: "Lighting", color: "bg-violet-600/30" },
+      { text: "Maya", color: "bg-purple-950/30" },
+      { text: "Environment Art", color: "bg-indigo-950/30" },
+      { text: "Lighting", color: "bg-indigo-900/30" },
     ],
     containerProps: {
       maxTilt: 12,
       scale: 1.03,
       glassOpacity: 0.15,
       glassBlur: 10,
-      className: "bg-gradient-to-br from-indigo-500/20 to-purple-500/20",
+      className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
     },
     isReversed: true,
   },

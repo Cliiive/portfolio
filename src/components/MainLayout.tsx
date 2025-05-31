@@ -19,13 +19,14 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       className={`min-h-screen p-4 md:p-8 lg:p-12 ${bgClass} transition-colors duration-700`}
     >
       <header className="mb-12 md:mb-16 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          My Portfolio
+        {" "}
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-200 mb-4">
+          Jonas Sasowski
         </h1>
         <p
           className={`${colors.text} mt-2 mb-8 transition-colors duration-500`}
         >
-          Interactive Project Showcase
+          A showcase of my work in full stack development and 3D art.
         </p>
         <TabSelector />
       </header>

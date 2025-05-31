@@ -57,9 +57,9 @@ const ProjectSection = ({
         <div className="h-full flex flex-col justify-center items-center">
           {containerContent}
         </div>
-      </FloatingContainer>
-      <div className="md:flex-1 text-gray-300 transition-all duration-500">
-        <h3 className="text-2xl font-bold mb-3 text-white transition-colors duration-300">
+      </FloatingContainer>{" "}
+      <div className="md:flex-1 text-gray-400 transition-all duration-500">
+        <h3 className="text-2xl font-bold mb-3 text-gray-200 transition-colors duration-300">
           {title}
         </h3>
         <p className="mb-4 transition-colors duration-500">{description}</p>

@@ -20,7 +20,7 @@ const FloatingContainer = ({
   perspective = 1000,
   scale = 1.05,
   speed = 400,
-  glassOpacity = 0.5,
+  glassOpacity = 0.1,
   glassBlur = 8,
 }: FloatingContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,9 +81,9 @@ const FloatingContainer = ({
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
     >
+      {" "}
       {/* Subtle inner glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 pointer-events-none" />
-
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/5 to-transparent dark:from-white/3 pointer-events-none" />
       {/* Content */}
       <div className="relative z-10 p-6 h-full">{children}</div>
     </div>
