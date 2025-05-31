@@ -40,7 +40,11 @@ const developmentProjects: Project[] = [
       <>
         <h2 className="text-xl font-bold mb-4">Project One</h2>
         <div className="flex justify-center">
-          <img src={reactLogo} className="w-20 h-20" alt="React logo" />
+          <img
+            src="D:/Coden/portfolio/src/assets/images/aawhq7yb.png"
+            className="w-20 h-20"
+            alt="React logo"
+          />
         </div>
       </>
     ),
@@ -49,6 +53,13 @@ const developmentProjects: Project[] = [
       { text: "TypeScript", color: "bg-blue-700/30" },
       { text: "Tailwind", color: "bg-blue-600/30" },
     ],
+    containerProps: {
+      maxTilt: 12,
+      scale: 1.05,
+      glassOpacity: 0.2,
+      glassBlur: 12,
+      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
+    },
     isReversed: false,
   },
   {
@@ -69,8 +80,8 @@ const developmentProjects: Project[] = [
       { text: "CSS Modules", color: "bg-teal-600/30" },
     ],
     containerProps: {
-      maxTilt: 15,
-      scale: 1.02,
+      maxTilt: 12,
+      scale: 1.05,
       glassOpacity: 0.2,
       glassBlur: 12,
       className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
@@ -98,10 +109,10 @@ const developmentProjects: Project[] = [
     ],
     containerProps: {
       maxTilt: 12,
-      scale: 1.03,
-      glassOpacity: 0.15,
-      glassBlur: 10,
-      className: "bg-gradient-to-br from-blue-900/10 to-blue-800/10",
+      scale: 1.05,
+      glassOpacity: 0.2,
+      glassBlur: 12,
+      className: "bg-gradient-to-br from-blue-900/20 to-blue-800/20",
     },
     isReversed: false,
   },
@@ -173,7 +184,7 @@ const Portfolio = () => {
       {developmentProjects.map((project, index) => (
         <div
           key={`dev-${index}`}
-          className="animate-fade-in-right"
+          className="animate-fade-in-right m-4"
           style={{ animationDelay: `${index * 150}ms` }}
         >
           <ProjectSection
@@ -197,7 +208,7 @@ const ArtGallery = () => {
       {artProjects.map((project, index) => (
         <div
           key={`art-${index}`}
-          className="animate-fade-in-left"
+          className="animate-fade-in-left m-4"
           style={{ animationDelay: `${index * 150}ms` }}
         >
           <ProjectSection

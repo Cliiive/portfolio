@@ -69,7 +69,7 @@ const FloatingContainer = ({
   return (
     <div
       ref={containerRef}
-      className={`floating-container relative overflow-hidden rounded-xl shadow-xl 
+      className={`floating-container relative overflow-hidden rounded-xl shadow-xl
                  ${className}`}
       style={{
         ...(tiltStyle as React.CSSProperties),
