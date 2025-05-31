@@ -1,9 +1,15 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import "./animation.css";
 import ProjectSection from "./components/ProjectSection";
 import MainLayout from "./components/MainLayout";
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import {
+  ThemeProvider,
+  useTheme,
+  type ThemeType,
+} from "./context/ThemeContext";
+import { useState, useEffect } from "react";
 
 interface Project {
   title: string;
@@ -28,7 +34,8 @@ interface Project {
 const developmentProjects: Project[] = [
   {
     title: "React Application",
-    description: "A modern React application built with the latest technologies. This project showcases my skills in frontend development and responsive design.",
+    description:
+      "A modern React application built with the latest technologies. This project showcases my skills in frontend development and responsive design.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Project One</h2>
@@ -46,7 +53,8 @@ const developmentProjects: Project[] = [
   },
   {
     title: "Vite Application",
-    description: "A lightning-fast application built with Vite. This project demonstrates my proficiency in creating optimized web applications with modern tooling.",
+    description:
+      "A lightning-fast application built with Vite. This project demonstrates my proficiency in creating optimized web applications with modern tooling.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Project Two</h2>
@@ -71,7 +79,8 @@ const developmentProjects: Project[] = [
   },
   {
     title: "Audio Platform",
-    description: "Whistledrop is a cutting-edge audio sharing platform that allows users to create, share, and discover unique audio content. Built with a focus on performance and user experience.",
+    description:
+      "Whistledrop is a cutting-edge audio sharing platform that allows users to create, share, and discover unique audio content. Built with a focus on performance and user experience.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Whistledrop</h2>
@@ -95,14 +104,15 @@ const developmentProjects: Project[] = [
       className: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10",
     },
     isReversed: false,
-  }
+  },
 ];
 
 // 3D Art projects
 const artProjects: Project[] = [
   {
     title: "3D Character Design",
-    description: "A detailed 3D character model created for an upcoming indie game. This project highlights my skills in character modeling, texturing, and rigging.",
+    description:
+      "A detailed 3D character model created for an upcoming indie game. This project highlights my skills in character modeling, texturing, and rigging.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Fantasy Character</h2>
@@ -129,7 +139,8 @@ const artProjects: Project[] = [
   },
   {
     title: "Environment Art",
-    description: "An atmospheric environment scene created for a sci-fi game. This project demonstrates my ability to create immersive worlds with attention to lighting and detail.",
+    description:
+      "An atmospheric environment scene created for a sci-fi game. This project demonstrates my ability to create immersive worlds with attention to lighting and detail.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
@@ -158,18 +169,23 @@ const artProjects: Project[] = [
 
 const Portfolio = () => {
   return (
-    <div>
+    <div className="space-y-16">
       {developmentProjects.map((project, index) => (
-        <ProjectSection
+        <div
           key={`dev-${index}`}
-          title={project.title}
-          description={project.description}
-          containerContent={project.containerContent}
-          tags={project.tags}
-          projectLink={project.projectLink}
-          isReversed={project.isReversed}
-          containerProps={project.containerProps}
-        />
+          className="animate-fade-in-right"
+          style={{ animationDelay: `${index * 150}ms` }}
+        >
+          <ProjectSection
+            title={project.title}
+            description={project.description}
+            containerContent={project.containerContent}
+            tags={project.tags}
+            projectLink={project.projectLink}
+            isReversed={project.isReversed}
+            containerProps={project.containerProps}
+          />
+        </div>
       ))}
     </div>
   );
@@ -177,18 +193,23 @@ const Portfolio = () => {
 
 const ArtGallery = () => {
   return (
-    <div>
+    <div className="space-y-16">
       {artProjects.map((project, index) => (
-        <ProjectSection
+        <div
           key={`art-${index}`}
-          title={project.title}
-          description={project.description}
-          containerContent={project.containerContent}
-          tags={project.tags}
-          projectLink={project.projectLink}
-          isReversed={project.isReversed}
-          containerProps={project.containerProps}
-        />
+          className="animate-fade-in-left"
+          style={{ animationDelay: `${index * 150}ms` }}
+        >
+          <ProjectSection
+            title={project.title}
+            description={project.description}
+            containerContent={project.containerContent}
+            tags={project.tags}
+            projectLink={project.projectLink}
+            isReversed={project.isReversed}
+            containerProps={project.containerProps}
+          />
+        </div>
       ))}
     </div>
   );
@@ -196,12 +217,55 @@ const ArtGallery = () => {
 
 const ProjectsDisplay = () => {
   const { theme } = useTheme();
-  
+  const [prevTheme, setPrevTheme] = useState<ThemeType | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayedContent, setDisplayedContent] =
+    useState<React.ReactNode | null>(null);
+
+  useEffect(() => {
+    if (prevTheme === null) {
+      // Initial render
+      setPrevTheme(theme);
+      setDisplayedContent(
+        theme === "development" ? <Portfolio /> : <ArtGallery />
+      );
+      return;
+    }
+
+    if (theme !== prevTheme) {
+      // Start exit animation
+      setIsAnimating(true);
+
+      // After animation completes, switch content
+      const timer = setTimeout(() => {
+        setDisplayedContent(
+          theme === "development" ? <Portfolio /> : <ArtGallery />
+        );
+        setPrevTheme(theme);
+        setIsAnimating(false);
+      }, 500); // Animation duration matches CSS animation time
+
+      return () => clearTimeout(timer);
+    }
+  }, [theme, prevTheme]);
+
+  // Determine exit animation class based on theme transition direction
+  const exitAnimationClass =
+    prevTheme === "development" && theme === "3d-art"
+      ? "animate-fade-out-left"
+      : "animate-fade-out-right";
+
+  // Add a container class for positioning and overflow handling
   return (
-    <>
-      {theme === 'development' && <Portfolio />}
-      {theme === '3d-art' && <ArtGallery />}
-    </>
+    <div className="relative overflow-hidden min-h-[600px]">
+      <div
+        className={`transition-all duration-500 ${
+          isAnimating ? exitAnimationClass : ""
+        }`}
+      >
+        {displayedContent}
+      </div>
+    </div>
   );
 };
 
