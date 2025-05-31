@@ -1,6 +1,4 @@
-import DystopiaImage from "./assets/images/aawhq7yb.png";
 import WhistleDrop from "./assets/images/whistledrop.png";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./animation.css";
 import ProjectSection from "./components/ProjectSection";
