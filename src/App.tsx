@@ -1,4 +1,5 @@
-import reactLogo from "./assets/react.svg";
+import DystopiaImage from "./assets/images/aawhq7yb.png";
+import WhistleDrop from "./assets/images/whistledrop.png";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import "./animation.css";
@@ -33,25 +34,25 @@ interface Project {
 // Development projects
 const developmentProjects: Project[] = [
   {
-    title: "React Application",
+    title: "WhistleDrop",
     description:
-      "A modern React application built with the latest technologies. This project showcases my skills in frontend development and responsive design.",
+      "WhistleDrop, ein Projekt das im Rahmen der Vorlesung 'Cyberspionage' entstanden ist." +
+      "Aufgabe war es eine Plattform zu erstellen die es Whistleblowern ermöglicht 100% anonym und sicher Informationen an Journalisten weiter zu reichen." +
+      "Die Plattform nutzt Pythons FastAPI, eine PostgreSQL Datenbank zum Speichern der Daten und Schlüssel und React für das Frontent." +
+      "Gehostet wird die Plattform in einem Docker Container auf einem Tor Onion Service.",
     containerContent: (
       <>
-        <h2 className="text-xl font-bold mb-4">Project One</h2>
-        <div className="flex justify-center">
-          <img
-            src="D:/Coden/portfolio/src/assets/images/aawhq7yb.png"
-            className="w-20 h-20"
-            alt="React logo"
-          />
+        <div className="w-full h-full">
+          <img src={WhistleDrop} className="w-full h-full" alt="React logo" />
         </div>
       </>
     ),
     tags: [
-      { text: "React", color: "bg-blue-950/30" },
-      { text: "TypeScript", color: "bg-blue-900/30" },
-      { text: "Tailwind", color: "bg-blue-800/30" },
+      { text: "Python", color: "bg-blue-950/30" },
+      { text: "PostreSQL", color: "bg-blue-900/30" },
+      { text: "React", color: "bg-blue-800/30" },
+      { text: "Docker", color: "bg-blue-700/30" },
+      { text: "Tor", color: "bg-blue-600/30" },
     ],
     containerProps: {
       maxTilt: 12,
@@ -63,21 +64,26 @@ const developmentProjects: Project[] = [
     isReversed: false,
   },
   {
-    title: "Vite Application",
+    title: "Bios Hour",
     description:
-      "A lightning-fast application built with Vite. This project demonstrates my proficiency in creating optimized web applications with modern tooling.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     containerContent: (
       <>
-        <h2 className="text-xl font-bold mb-4">Project Two</h2>
-        <div className="flex justify-center">
-          <img src={viteLogo} className="w-20 h-20" alt="Vite logo" />
+        <h2 className="text-xl font-bold mb-4">Bios Hour</h2>
+        <div className="flex flex-col space-y-2 items-center">
+          <p className="text-sm opacity-80 text-center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
         </div>
       </>
     ),
     tags: [
-      { text: "JavaScript", color: "bg-yellow-600/30" },
-      { text: "Vite", color: "bg-red-600/30" },
-      { text: "CSS Modules", color: "bg-teal-600/30" },
+      { text: "Flutter", color: "bg-blue-950/30" },
+      { text: "Bloc", color: "bg-blue-900/30" },
+      { text: "Dart", color: "bg-blue-800/30" },
+      { text: "Supabase", color: "bg-blue-700/30" },
     ],
     containerProps: {
       maxTilt: 12,
@@ -89,23 +95,26 @@ const developmentProjects: Project[] = [
     isReversed: true,
   },
   {
-    title: "Audio Platform",
+    title: "Konglomerat",
     description:
-      "Whistledrop is a cutting-edge audio sharing platform that allows users to create, share, and discover unique audio content. Built with a focus on performance and user experience.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     containerContent: (
       <>
-        <h2 className="text-xl font-bold mb-4">Whistledrop</h2>
+        <h2 className="text-xl font-bold mb-4">Konglomerat</h2>
         <div className="flex flex-col space-y-2 items-center">
           <p className="text-sm opacity-80 text-center">
-            An innovative audio sharing platform
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
       </>
     ),
     tags: [
-      { text: "Next.js", color: "bg-blue-950/30" },
-      { text: "Node.js", color: "bg-blue-900/30" },
-      { text: "MongoDB", color: "bg-blue-800/30" },
+      { text: "React", color: "bg-blue-950/30" },
+      { text: "JavaScript", color: "bg-blue-900/30" },
+      { text: "Python", color: "bg-blue-800/30" },
+      { text: "Supabase", color: "bg-blue-700/30" },
     ],
     containerProps: {
       maxTilt: 12,
@@ -121,9 +130,11 @@ const developmentProjects: Project[] = [
 // 3D Art projects
 const artProjects: Project[] = [
   {
-    title: "3D Character Design",
+    title: "Reactive Music Video",
     description:
-      "A detailed 3D character model created for an upcoming indie game. This project highlights my skills in character modeling, texturing, and rigging.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Fantasy Character</h2>
@@ -135,9 +146,10 @@ const artProjects: Project[] = [
       </>
     ),
     tags: [
+      { text: "Ember Gen", color: "bg-purple-950/30" },
       { text: "Blender", color: "bg-purple-950/30" },
-      { text: "Character Design", color: "bg-purple-900/30" },
-      { text: "Texturing", color: "bg-indigo-900/30" },
+      { text: "Unreal Engine", color: "bg-purple-900/30" },
+      { text: "Music Video", color: "bg-indigo-900/30" },
     ],
     containerProps: {
       maxTilt: 15,
@@ -151,7 +163,9 @@ const artProjects: Project[] = [
   {
     title: "Environment Art",
     description:
-      "An atmospheric environment scene created for a sci-fi game. This project demonstrates my ability to create immersive worlds with attention to lighting and detail.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     containerContent: (
       <>
         <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
@@ -163,7 +177,7 @@ const artProjects: Project[] = [
       </>
     ),
     tags: [
-      { text: "Maya", color: "bg-purple-950/30" },
+      { text: "Blender", color: "bg-purple-950/30" },
       { text: "Environment Art", color: "bg-indigo-950/30" },
       { text: "Lighting", color: "bg-indigo-900/30" },
     ],
@@ -175,6 +189,96 @@ const artProjects: Project[] = [
       className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
     },
     isReversed: true,
+  },
+  {
+    title: "Endless Engines",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    containerContent: (
+      <>
+        <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
+        <div className="flex justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-950/30 to-indigo-950/30 rounded-full flex items-center justify-center">
+            <span className="text-2xl">���</span>
+          </div>
+        </div>
+      </>
+    ),
+    tags: [
+      { text: "Blender", color: "bg-purple-950/30" },
+      { text: "Animation", color: "bg-indigo-950/30" },
+      { text: "Environment Design", color: "bg-indigo-900/30" },
+    ],
+    containerProps: {
+      maxTilt: 12,
+      scale: 1.03,
+      glassOpacity: 0.15,
+      glassBlur: 10,
+      className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
+    },
+    isReversed: false,
+  },
+  {
+    title: "Infinite Journeys",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    containerContent: (
+      <>
+        <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
+        <div className="flex justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-950/30 to-indigo-950/30 rounded-full flex items-center justify-center">
+            <span className="text-2xl">���</span>
+          </div>
+        </div>
+      </>
+    ),
+    tags: [
+      { text: "Blender", color: "bg-purple-950/30" },
+      { text: "Animation", color: "bg-indigo-950/30" },
+      { text: "Environment Design", color: "bg-indigo-900/30" },
+    ],
+    containerProps: {
+      maxTilt: 12,
+      scale: 1.03,
+      glassOpacity: 0.15,
+      glassBlur: 10,
+      className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
+    },
+    isReversed: true,
+  },
+  {
+    title: "Realistic Interior Scene",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    containerContent: (
+      <>
+        <h2 className="text-xl font-bold mb-4">Sci-Fi Environment</h2>
+        <div className="flex justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-950/30 to-indigo-950/30 rounded-full flex items-center justify-center">
+            <span className="text-2xl">���</span>
+          </div>
+        </div>
+      </>
+    ),
+    tags: [
+      { text: "Unreal Engine", color: "bg-purple-950/30" },
+      { text: "Environment Art", color: "bg-indigo-950/30" },
+      { text: "Physical Based Lighting", color: "bg-indigo-900/30" },
+    ],
+    containerProps: {
+      maxTilt: 12,
+      scale: 1.03,
+      glassOpacity: 0.15,
+      glassBlur: 10,
+      className: "bg-gradient-to-br from-purple-950/15 to-indigo-950/15",
+    },
+    isReversed: false,
   },
 ];
 

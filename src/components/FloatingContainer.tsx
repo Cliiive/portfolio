@@ -85,7 +85,7 @@ const FloatingContainer = ({
       {/* Subtle inner glow effect */}
       <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/5 to-transparent dark:from-white/3 pointer-events-none" />
       {/* Content */}
-      <div className="relative z-10 p-6 h-full">{children}</div>
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   );
 };

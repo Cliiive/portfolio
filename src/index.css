@@ -26,6 +26,8 @@
   -webkit-backface-visibility: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
+  overflow: hidden; /* Ensure images don't overflow container */
+  isolation: isolate; /* Create a new stacking context */
 }
 
 /* Project Animation Styles */
