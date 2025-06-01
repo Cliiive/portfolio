@@ -1,5 +1,6 @@
 import { useTheme } from "../context/ThemeContext";
 import TabSelector from "./TabSelector";
+import Footer from "./Footer";
 import { useEffect, useState } from "react";
 
 interface MainLayoutProps {
@@ -32,8 +33,10 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       </header>
 
       <div className="max-w-7xl mx-auto transition-all duration-500">
-        {children}
+        {children}{" "}
       </div>
+
+      <Footer />
     </div>
   );
 };

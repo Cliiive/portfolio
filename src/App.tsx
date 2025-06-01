@@ -1,4 +1,5 @@
 import WhistleDrop from "./assets/images/whistledrop.png";
+import BiosHour from "./assets/images/bioshour.png";
 import "./App.css";
 import "./animation.css";
 import ProjectSection from "./components/ProjectSection";
@@ -69,11 +70,8 @@ const developmentProjects: Project[] = [
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     containerContent: (
       <>
-        <h2 className="text-xl font-bold mb-4">Bios Hour</h2>
-        <div className="flex flex-col space-y-2 items-center">
-          <p className="text-sm opacity-80 text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+        <div className="w-full h-full">
+          <img src={BiosHour} className="w-full h-full" alt="React logo" />
         </div>
       </>
     ),
