@@ -37,6 +37,13 @@ Body text in Markdown...
   - Example in a writeup: `../projects/some-project.md`
 - Images referenced in Markdown are supported when placed next to the `.md` file (relative paths) within `src/content/**`. They are resolved by the bundler.
 
+### Images & Assets
+
+- Keep lightweight screenshots next to the Markdown file under `src/content/**` when possible.
+- For larger blobs, drop them under `public/projects/<slug>/` or `public/writeups/<slug>/`; the `<slug>` is the Markdown filename without the extension.
+- Obsidian-style embeds such as `![[image.png]]` are auto-converted to regular Markdown images and will look for that image in the inferred public folder when it is not bundled under `src/content`.
+- Absolute `/` paths still work: `![diagram](/images/diagram.png)` pulls directly from `public/images/diagram.png`.
+
 ## Design Principles
 
 - Dark mode by default, professional and minimal
