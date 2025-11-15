@@ -37,23 +37,23 @@ nmap -sS -sV -p 22,1337 -v 10.10.85.193 | tee nmap_version.txt
 
 This scan gave me the following output:
 
-![[image 1.png]]
+![[image1.png]]
 
 Interesting, we have an Apache webserver on an Ubuntu machine. Let's continue by visiting the web page. After opening the website on port 1337, I was presented with a login screen:
 
-![[image 2.png]]
+![[image2.png]]
 
 After clicking on the "Forgot your password" button, I was asked to input an email address. This could maybe be fuzzed or enumerated, but I decided to first look around a bit more before digging deeper into this feature. I wanted to avoid wasting time falling into a rabbit hole and missing other important details. This was a mistake I made a lot of times when I began with CTFs, but not this time!
 
 First, I continued my discovery by checking the tech stack with a tool called **Wappalyzer**. Wappalyzer is a browser extension that gives you insights into the tech stack and frameworks behind a web app. Sadly this time, Wappalyzer only told me that the programming language used is **PHP**. Nevertheless, that's still useful information.
 
-![[image 3.png]]
+![[image3.png]]
 As a next step in my reconnaissance, I decided to do some directory/endpoint enumeration. For that, I used the tool **gobuster**. With the following command, I started to enumerate the web app for hidden directories:
 
 ```bash
 gobuster dir -u http://10.10.85.193:1337/ -w /usr/share/wordlists/dirb/common.txt
 ```
-
+![[image5.png]]
 Interesting! A couple of open endpoints, especially the `/phpmyadmin` endpoint, since I had in mind that there was a SQL injection for a specific version. I decided to keep this information in mind and continued with the current discovery, because I didn't want to lose my focus and miss any details.
 
 After looking at the page source of the login panel, I found an interesting developer comment:
@@ -68,7 +68,7 @@ ffuf -u http://10.10.85.193:1337/hmr_FUZZ -w /usr/share/wordlists/dirb/common.tx
 
 And there we go, we found some interesting directories on the webserver:
 
-![[image 5.png]]
+![[image6.png]]
 
 The `logs` directory looks very promising, since log files (specifically error logs) often contain interesting info about the architecture of an application.
 
@@ -84,7 +84,7 @@ Very nice! The error logs revealed an email to us: **`tester@hammer.thm`**. This
 
 After entering the email, I was presented with a screen asking for a recovery code.
 
-![[image 6.png]]
+![[image7.png]]
 
 Of course, I don't have access to that email, so we have to find another way around. The first thing I did was fire up **Burp Suite** and check what options we have. It turned out that the timer was client-side and could be reset just by re-sending the email request. Sweet!
 
@@ -199,11 +199,11 @@ It checks every response for the `fail_phrase` ("Invalid or expired recovery cod
 
 After the script found the code, I just had to copy the _last used_ `PHPSESSID` from my script's output, replace the session cookie in my browser with it, and refresh the page. Voila! We have a reset form:
 
-![[image 7.png]]
+![[image8.png]]
 
 After logging in with my new credentials, I was presented with this screen and the first flag:
 
-![[image 8.png]]
+![[image9.png]]
 
 ## Privilege Escalation: Command Injection & JWT Forging
 
@@ -214,13 +214,13 @@ This screen immediately told me two things:
 
 I tried a simple `ls` command to check if we could run commands for sure, and it worked:
 
-![[image 9.png]]
+![[image10.png]]
 
 Every other command I tried (`whoami`, `cat`, etc.) returned a message that I didn't have the right permissions.
 
 After 10 seconds or so, I got logged out, which was really annoying. I started to check the website source code to see what was causing this. I found a JavaScript snippet that looked very weird, with no particular purpose:
 
-![[image 10.png]]
+![[image11.png]]
 
 This function just checks if a cookie named `persistentSession` is set, and if not, redirects the user to `logout.php`. So I just set that cookie manually in my browser's developer tools and continued my inspection of the code responsible for sending the command to the server:
 ```javascript
@@ -343,7 +343,7 @@ This script uses the `pyjwt` library.
 
 Now the only thing left to do was to intercept the request (that sends the `ls` command) with Burp, replace the hardcoded JWT in the `Authorization: Bearer` header with our new forged one, and... it worked!
 
-![[image 11.png]]
+![[image12.png]]
 
 I ran `whoami` and other commands, and they all worked. We are `www-data`, but with admin rights in the app.
 
@@ -367,6 +367,6 @@ For the reverse shell, I used a classic Python one-liner from Pentest Monkey. Th
 
 After sending the request... tada, we got a shell!
 
-![[image 12.png]]
+![[image13.png]]
 
 From here, I could grab the final flag. Thanks for reading!

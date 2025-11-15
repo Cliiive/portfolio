@@ -43,15 +43,79 @@ function joinPath(a: string, b: string) {
   return normalizePath(a.replace(/\/$/, "") + "/" + b.replace(/^\//, ""));
 }
 
-export function resolveImageUrl(fromMdPath: string, relSrc: string): string | undefined {
+function splitSrcAndSuffix(src: string): { path: string; suffix: string } {
+  const match = src.match(/^([^?#]+)(.*)$/);
+  return match ? { path: match[1], suffix: match[2] } : { path: src, suffix: "" };
+}
+
+function isExternalAsset(src: string) {
+  return /^(https?:|data:)/i.test(src);
+}
+
+function resolveContentAssetPath(fromMdPath: string, rel: string): string | undefined {
   const base = pathDirname(fromMdPath);
-  const absolute = normalizePath(joinPath(base, relSrc));
-  // Try direct match first
+  const absolute = normalizePath(joinPath(base, rel));
   if (imageUrlMap.has(absolute)) return imageUrlMap.get(absolute);
-  // Also try without leading /src if present
   const alt = absolute.startsWith("/src/") ? absolute : `/src/${absolute.replace(/^\//, "")}`;
   if (imageUrlMap.has(alt)) return imageUrlMap.get(alt);
   return undefined;
+}
+
+function resolvePublicAssetPath(fromMdPath: string, rel: string): string | undefined {
+  if (!rel) return undefined;
+  const normalized = normalizePath(rel);
+
+  if (normalized.startsWith("/")) return normalized;
+
+  const explicitPublic = normalized.match(/(?:^|\/)public\/(.+)/);
+  if (explicitPublic?.[1]) {
+    return normalizePath(`/${explicitPublic[1]}`);
+  }
+
+  const inferredBase = publicBaseForMdPath(fromMdPath);
+  if (!inferredBase) return undefined;
+  return normalizePath(joinPath(inferredBase, normalized));
+}
+
+function publicBaseForMdPath(mdPath: string): string | undefined {
+  const type = toTypeFromPath(mdPath);
+  if (!type) return undefined;
+  const slug = slugFromPath(mdPath);
+  const folder = type === "project" ? "projects" : "writeups";
+  return `/${folder}/${slug}`;
+}
+
+function preprocessContent(raw: string): string {
+  const normalized = typeof raw === "string" ? raw : String(raw ?? "");
+  return transformObsidianEmbeds(normalized).trim();
+}
+
+function transformObsidianEmbeds(md: string): string {
+  // Convert Obsidian-style embeds ![[image.png]] -> ![image.png](image.png)
+  return md.replace(/!\[\[([^\]]+)\]\]/g, (_, target: string) => {
+    const [pathPart, aliasPart] = target.split("|");
+    const src = pathPart?.trim();
+    if (!src) return _;
+    const alt = aliasPart ? aliasPart.trim() : src;
+    return `![${alt}](${src})`;
+  });
+}
+
+export function resolveImageUrl(fromMdPath: string, relSrc: string): string | undefined {
+  if (!relSrc) return undefined;
+  const trimmed = relSrc.trim();
+  if (!trimmed) return undefined;
+  if (isExternalAsset(trimmed)) return trimmed;
+
+  const { path: pathOnly, suffix } = splitSrcAndSuffix(trimmed);
+
+  const contentAsset = resolveContentAssetPath(fromMdPath, pathOnly);
+  if (contentAsset) return contentAsset + suffix;
+
+  const publicAsset = resolvePublicAssetPath(fromMdPath, pathOnly);
+  if (publicAsset) return publicAsset + suffix;
+
+  return pathOnly.startsWith("/") ? normalizePath(pathOnly) + suffix : undefined;
 }
 
 function toTypeFromPath(path: string): ContentType | undefined {
@@ -90,7 +154,7 @@ const allItems: ContentItem[] = Object.entries(mdModules)
       description,
       tags,
       path: normalizePath(path),
-      content: parsed.content.trim(),
+      content: preprocessContent(parsed.content),
     } satisfies ContentItem;
   })
   .filter(Boolean) as ContentItem[];
