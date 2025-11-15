@@ -8,7 +8,7 @@ export default function Nav() {
   return (
     <div className="container-std flex items-center justify-between gap-2 py-2">
       <div className="text-xs sm:text-sm flex-shrink-0" style={{ color: '#bdae93' }}>
-        <span style={{ color: '#d79921' }}>{String.raw`_/0/\//-\5 5/-\50\/\/5/<1`}</span>
+        <span style={{ color: '#d79921' }}>{String.raw`_/0/\//-\5`}</span>
       </div>
       <nav className="flex items-center gap-1 ml-auto flex-wrap justify-end min-w-0">
         <NavLink
