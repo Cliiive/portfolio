@@ -6,8 +6,8 @@ export default function Projects() {
   return (
     <section>
       <div className="text-center">
-        <h1 className="text-2xl font-semibold tracking-tight text-violet-400">Projects / Blog</h1>
-        <p className="text-slate-400 mt-3 mb-8">Code, experiments, and notes worth sharing.</p>
+        <h1 className="text-2xl font-semibold tracking-tight" style={{ color: '#d79921' }}>Projects / Blog</h1>
+        <p className="mt-3 mb-8" style={{ color: '#bdae93' }}>Code, experiments, and notes worth sharing.</p>
       </div>
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

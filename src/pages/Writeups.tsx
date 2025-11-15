@@ -7,8 +7,8 @@ export default function Writeups() {
     <section>
       <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between gap-3">
         <div className="text-left">
-          <h1 className="text-2xl font-semibold tracking-tight text-violet-400">Writeups</h1>
-          <p className="text-slate-400 mt-2">CTFs, vulns, and investigations.</p>
+          <h1 className="text-2xl font-semibold tracking-tight" style={{ color: '#d79921' }}>Writeups</h1>
+          <p className="mt-2" style={{ color: '#bdae93' }}>CTFs, vulns, and investigations.</p>
         </div>
         <img
           src="https://tryhackme-badges.s3.amazonaws.com/c1ive.png"

@@ -1,44 +1,47 @@
 export default function About() {
   return (
-    <section className="space-y-6">
-      <h1 className="text-3xl font-semibold tracking-tight">
-        <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-          Hi, I'm Jonas
-        </span>{" "}
-        — 20, CS student focused on cybersecurity
+    <section className="space-y-6 relative">
+      <h1 className="text-3xl font-semibold tracking-tight" style={{ color: '#d79921' }}>
+        Jonas Sasowski
       </h1>
-      <p className="text-slate-300 leading-7 max-w-3xl border-l-2 border-violet-700/60 pl-4">
-        I study computer science and spend most of my time exploring systems, security, and low-level programming. I value clear thinking, practical skills, and a tight
-        feedback loop. This site collects my projects, notes, and security writeups — no fluff.
+      <p className="leading-7 max-w-3xl" style={{ color: '#d5c4a1' }}>
+      
+A computer science student in Karlsruhe (currently 5th semester) exploring low-level systems, C++, and cyber security. I like understanding how things behave under the hood and why.
+Most of my time goes into trying out new C++ ideas, exploring systems, reading about exploitation techniques, or breaking my Arch installation for the 100th time because I wanted to tweak something.
+I tend to follow questions until I understand the underlying mechanics.      
+      </p>
+        <p className="leading-7 max-w-3xl" style={{ color: '#d5c4a1' }}>
+      
+
+This site is where I keep track of what I've been working on.
       </p>
 
-      <div className="flex flex-wrap gap-2">
-        {[
-          "Security",
-          "Systems",
-          "Databases",
-          "C/C++",
-          "Postgres",
-        ].map((t) => (
-          <span
-            key={t}
-            className="inline-flex items-center rounded-md border border-violet-700/60 bg-violet-500/10 px-2 py-0.5 text-xs text-violet-300"
-          >
-            {t}
-          </span>
-        ))}
-      </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <div className="rounded-lg border border-slate-800 bg-slate-900/40 p-4">
-          <h2 className="text-sm font-semibold text-slate-200">Focus Areas</h2>
-          <p className="text-sm text-slate-400 mt-2">
-            Binary exploitation, systems programming, secure infrastructure, databases.
+        <div className="rounded-lg border p-4" style={{ borderColor: '#3c3836', backgroundColor: '#282828' }}>
+          <h2 className="text-sm font-semibold" style={{ color: '#ebdb2' }}>Focus Areas</h2>
+          <p className="text-sm mt-2" style={{ color: '#bdae93' }}>
+        Passionate about Security, CTFs, and Ethical Hacking. I enjoy exploring vulnerabilities, understanding how systems can fail, and applying hands-on techniques to learn and test real-world scenarios.
           </p>
         </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-900/40 p-4">
-          <h2 className="text-sm font-semibold text-slate-200">Toolbox</h2>
-          <p className="text-sm text-slate-400 mt-2">Linux, C/C++, Python, Go, Postgres, Docker, Nmap, Ghidra.</p>
+        <div className="rounded-lg border p-4" style={{ borderColor: '#3c3836', backgroundColor: '#282828' }}>
+          <h2 className="text-sm font-semibold" style={{ color: '#ebdbb2' }}>Toolbox</h2>
+        <div className="text-sm mt-2" style={{ color: '#bdae93' }}>
+        <ul className="list-disc list-inside pl-0 space-y-4">
+          {[ 
+          { title: "C, C++", desc: "systems programming, memory management" },
+          { title: "Python", desc: "scripting, automation, security tooling" },
+          { title: "Docker & Linux", desc: "containers, shell scripting" },
+          { title: "Git", desc: "version control" },
+          { title: "Penetration testing", desc: "ethical hacking, vulnerability research" },
+          ].map((item) => (
+          <li key={item.title} className="flex flex-col">
+        <div className="text-sm font-medium" style={{ color: "#ebdbb2" }}>{item.title}</div>
+        <div className="text-xs mt-0.5" style={{ color: "#bdae93" }}>{item.desc}</div>
+          </li>
+          ))}
+        </ul>
+        </div>
         </div>
       </div>
     </section>

@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 /* Minimal tweaks for selection and focus */
-::selection { background-color: rgba(139, 92, 246, 0.25); }
+/* Gruvbox selection */
+::selection { background-color: #504945; color: #fbf1c7; }
 
 /* Markdown content defaults (applied via wrapper class) */
 .mdx h1 { @apply text-3xl font-semibold tracking-tight mt-2 mb-4; }
 .mdx h2 { @apply text-2xl font-semibold tracking-tight mt-8 mb-3; }
 .mdx h3 { @apply text-xl font-semibold tracking-tight mt-6 mb-2; }
-.mdx p { @apply leading-7 text-slate-300 my-4; }
+.mdx p { @apply leading-7 my-4; color: #d5c4a1; }
 .mdx ul { @apply list-disc pl-6 my-4 space-y-2; }
 .mdx ol { @apply list-decimal pl-6 my-4 space-y-2; }
-.mdx a { @apply text-violet-400 hover:text-violet-300 underline underline-offset-4; }
-.mdx pre { @apply bg-slate-900/60 rounded-lg p-4 overflow-x-auto my-4; }
+.mdx a { @apply underline underline-offset-4; color: #d79921; }
+.mdx a:hover { color: #fabd2f; }
+.mdx pre { @apply rounded-lg p-4 overflow-x-auto my-4; background-color: #32302f; color: #ebdbb2; }
 .mdx code { @apply font-mono text-sm; }
-.mdx img { @apply rounded-lg border border-slate-800 my-4; }
-.mdx blockquote { @apply border-l-4 border-slate-700 pl-4 text-slate-300 italic my-4; }
+.mdx img { @apply rounded-lg my-4; border: 1px solid #3c3836; }
+.mdx blockquote { @apply border-l-4 pl-4 italic my-4; border-color: #3c3836; color: #bdae93; }
 
 /* Layout helpers */
 .container-std { @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8; }

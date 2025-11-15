@@ -9,19 +9,32 @@ export type TileProps = {
 
 export default function Tile({ to, title, description, tags }: TileProps) {
   const badgeVariants = [
-    "border-violet-500/40 bg-violet-950/30 text-violet-200",
-    "border-violet-700/40 bg-violet-900/20 text-violet-300",
-    "border-violet-800/40 bg-violet-900/10 text-violet-300",
-    "border-violet-900/40 bg-violet-950/10 text-violet-400",
+    "border-[#d79921]/40 bg-[#d79921]/10 text-[#d79921]", // yellow
+    "border-[#fe8019]/40 bg-[#fe8019]/10 text-[#fe8019]", // orange
+    "border-[#b16286]/40 bg-[#b16286]/10 text-[#b16286]", // purple
+    "border-[#8ec07c]/40 bg-[#8ec07c]/10 text-[#8ec07c]", // aqua
   ];
   return (
     <Link
       to={to}
-      className="block rounded-lg border border-slate-800 bg-slate-900/40 p-4 hover:border-slate-700 hover:bg-slate-900/60 focus:outline-none focus:ring-2 focus:ring-violet-600"
+      className="block rounded-lg border p-4 focus:outline-none focus:ring-2"
+      style={{
+        borderColor: '#3c3836',
+        backgroundColor: '#282828',
+        boxShadow: 'none',
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = '#504945';
+        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#32302f';
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = '#3c3836';
+        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#282828';
+      }}
     >
-      <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
+      <h3 className="text-lg font-semibold" style={{ color: '#fbf1c7' }}>{title}</h3>
       {description && (
-        <p className="mt-2 text-sm text-slate-400 line-clamp-3">{description}</p>
+        <p className="mt-2 text-sm line-clamp-3" style={{ color: '#bdae93' }}>{description}</p>
       )}
       {tags && tags.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">

@@ -38,13 +38,13 @@ export default function MarkdownRenderer({ md, mdPath }: Props) {
             const content = String(children).replace(/\n$/, "");
             if (inline) {
               return (
-                <code className="px-1.5 py-0.5 rounded bg-slate-800/70 text-slate-100" {...props}>
+                <code className="px-1.5 py-0.5 rounded" style={{ backgroundColor: '#3c3836', color: '#ebdbb2' }} {...props}>
                   {content}
                 </code>
               );
             }
             return (
-              <pre className="bg-slate-900/70 rounded-lg p-4 overflow-auto">
+              <pre className="rounded-lg p-4 overflow-auto" style={{ backgroundColor: '#32302f', color: '#ebdbb2' }}>
                 <code className={className}>{content}</code>
               </pre>
             );
