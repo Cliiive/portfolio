@@ -8,6 +8,12 @@ export type TileProps = {
 };
 
 export default function Tile({ to, title, description, tags }: TileProps) {
+  const badgeVariants = [
+    "border-violet-500/40 bg-violet-950/30 text-violet-200",
+    "border-violet-700/40 bg-violet-900/20 text-violet-300",
+    "border-violet-800/40 bg-violet-900/10 text-violet-300",
+    "border-violet-900/40 bg-violet-950/10 text-violet-400",
+  ];
   return (
     <Link
       to={to}
@@ -19,10 +25,10 @@ export default function Tile({ to, title, description, tags }: TileProps) {
       )}
       {tags && tags.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
-          {tags.map((t) => (
+          {tags.map((t, i) => (
             <span
               key={t}
-              className="inline-flex items-center rounded-md border border-slate-700 bg-slate-800/80 px-2 py-0.5 text-xs text-slate-300"
+              className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs ${badgeVariants[i % badgeVariants.length]}`}
             >
               {t}
             </span>
