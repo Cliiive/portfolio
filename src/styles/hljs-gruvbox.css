@@ -1,0 +1,15 @@
+/* Minimal Gruvbox Dark for highlight.js tokens
+   Matches site background (#32302f) set on .mdx pre; leave background transparent here.
+*/
+.hljs { color: #ebdbb2; background: transparent; }
+.hljs-comment, .hljs-quote { color: #928374; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-doctag, .hljs-section { color: #fb4934; }
+.hljs-name, .hljs-attr, .hljs-attribute { color: #fabd2f; }
+.hljs-string, .hljs-meta .hljs-string, .hljs-symbol, .hljs-bullet { color: #b8bb26; }
+.hljs-number, .hljs-literal, .hljs-regexp { color: #d3869b; }
+.hljs-built_in, .hljs-type, .hljs-class .hljs-title { color: #fabd2f; }
+.hljs-function .hljs-title, .hljs-title { color: #8ec07c; }
+.hljs-variable, .hljs-template-variable { color: #fe8019; }
+.hljs-link { color: #83a598; text-decoration: underline; }
+.hljs-addition { color: #b8bb26; }
+.hljs-deletion { color: #fb4934; }

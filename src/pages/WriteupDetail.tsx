@@ -18,30 +18,38 @@ export default function WriteupDetail() {
   }
 
   return (
-    <article className="space-y-4">
-      <div>
-        <Link
-          to="/writeups"
-          className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
-          style={{ color: "#d79921" }}
-        >
-          ← Back to Writeups
-        </Link>
+    <article className="container-std py-6">
+      <div className="mx-auto max-w-3xl space-y-4">
+        <div>
+          <Link
+            to="/writeups"
+            className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
+            style={{ color: "#d79921" }}
+          >
+            ← Back to Writeups
+          </Link>
+        </div>
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">{item.title}</h1>
+          {item.description && <p className="text-slate-400 mt-2">{item.description}</p>}
+          {item.tags.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {item.tags.map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center rounded-md border px-2 py-0.5 text-[11px] sm:text-xs"
+                  style={{ borderColor: "#504945", backgroundColor: "#3c3836", color: "#d5c4a1" }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="mdx-wrapper">
+          <MarkdownRenderer md={item.content} mdPath={item.path} />
+        </div>
       </div>
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tight">{item.title}</h1>
-        {item.description && <p className="text-slate-400 mt-2">{item.description}</p>}
-        {item.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {item.tags.map((t) => (
-              <span key={t} className="inline-flex items-center rounded-md border border-slate-700 bg-slate-800/80 px-2 py-0.5 text-xs text-slate-300">
-                {t}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-      <MarkdownRenderer md={item.content} mdPath={item.path} />
     </article>
   );
 }

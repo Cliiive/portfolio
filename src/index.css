@@ -15,8 +15,41 @@
 .mdx a:hover { color: #fabd2f; }
 .mdx pre { @apply rounded-lg p-4 overflow-x-auto my-4; background-color: #32302f; color: #ebdbb2; }
 .mdx code { @apply font-mono text-sm; }
+.mdx :not(pre) > code { background-color: #3c3836; color: #ebdbb2; padding: 0.125rem 0.375rem; border-radius: 0.25rem; }
 .mdx img { @apply rounded-lg my-4; border: 1px solid #3c3836; }
 .mdx blockquote { @apply border-l-4 pl-4 italic my-4; border-color: #3c3836; color: #bdae93; }
 
+/* Markdown container helper for detail pages */
+.mdx-wrapper { width: 100%; }
+.mdx { width: 100%; max-width: 100%; }
+
+/* Ensure prose text wraps on all breakpoints */
+.mdx p,
+.mdx li,
+.mdx blockquote,
+.mdx td,
+.mdx th,
+.mdx a { overflow-wrap: anywhere; word-break: break-word; }
+.mdx img { max-width: 100%; height: auto; }
+.mdx table { width: 100%; border-collapse: collapse; }
+
+/* Keep code blocks readable without affecting layout */
+.mdx pre { max-width: 100%; overflow-x: auto; white-space: pre; }
+.mdx pre code,
+.mdx code.hljs { white-space: inherit; }
+
 /* Layout helpers */
 .container-std { @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+/* Mobile readability: avoid horizontal scrolling */
+.mdx { overflow-wrap: anywhere; word-break: break-word; }
+.mdx img { max-width: 100%; height: auto; }
+.mdx a { overflow-wrap: anywhere; word-break: break-word; }
+.mdx table { width: 100%; }
+.mdx th, .mdx td { word-break: break-word; }
+
+@media (max-width: 640px) {
+	/* Wrap long code lines on small screens */
+	.mdx pre { white-space: pre-wrap; word-break: break-word; overflow-x: hidden; }
+	.mdx pre code, .mdx code.hljs { white-space: pre-wrap; word-break: break-word; }
+}
