@@ -20,6 +20,15 @@ export default function WriteupDetail() {
   return (
     <article className="space-y-4">
       <div>
+        <Link
+          to="/writeups"
+          className="inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
+          style={{ color: "#d79921" }}
+        >
+          ← Back to Writeups
+        </Link>
+      </div>
+      <div>
         <h1 className="text-3xl font-semibold tracking-tight">{item.title}</h1>
         {item.description && <p className="text-slate-400 mt-2">{item.description}</p>}
         {item.tags.length > 0 && (
