@@ -49,7 +49,7 @@ export default function Nav() {
           <FaGithub size={18} />
         </a>
           <a
-          href="#"
+          href="https://www.linkedin.com/in/jonas-sasowski-31b225338/"
           target="_blank"
           rel="noreferrer"
             className="hidden md:inline-flex p-2 hover:text-[#d79921]"
