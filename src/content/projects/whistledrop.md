@@ -1,13 +1,7 @@
 ---
-title: Whistle Drop
-description: Small PoC scanning HTTP endpoints for simple command injection patterns.
+title: WhistleDrop
+description: Secure end-to-end encrypted whistledropper plattform
 tags: Python, Encryption, Security
 ---
 
-This is a minimal project exploring request patterns that may trigger command injection in poorly validated endpoints.
-
-- Supports basic payload lists
-- Parallel scanning with rate limiting
-- Structured output to JSON
-
-Related writeup: [A quick note on input validation](../projects/sample-project.md).
+Whistledrop is a secure whistleblower system that enables encrypted communication between whistleblowers and journalists through the Tor network with end-to-end encryption using asymmetric RSA encryption. It's inspired by the [Securedrop](https://securedrop.org/) project. You can checkout the source code [here](https://github.com/Cliiive/whistledrop).

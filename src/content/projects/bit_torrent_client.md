@@ -1,13 +1,7 @@
 ---
 title: Bit Torrent Client
-description: Small PoC scanning HTTP endpoints for simple command injection patterns.
+description: Custom BitTorrent client implemented in C++
 tags: C++, Distrubuted Systems
 ---
 
-This is a minimal project exploring request patterns that may trigger command injection in poorly validated endpoints.
-
-- Supports basic payload lists
-- Parallel scanning with rate limiting
-- Structured output to JSON
-
-Related writeup: [A quick note on input validation](../projects/sample-project.md).
+With this project i wanted to challenge myself and explore the low-level workings of the Peer-To-Peer BitTorrent Protocol. The development/documentation is still WIP so stay tuned!

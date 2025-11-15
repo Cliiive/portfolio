@@ -1,13 +1,8 @@
 ---
 title: Secure JWT issuing with mTLS
-description: Small PoC scanning HTTP endpoints for simple command injection patterns.
+description: Evaluation on secure API Design and token issuing
 tags: Python, JWT, mTLS
 ---
 
-This is a minimal project exploring request patterns that may trigger command injection in poorly validated endpoints.
+In this post i will describe how to implement a secure API for token issuing. Stay tuned!  
 
-- Supports basic payload lists
-- Parallel scanning with rate limiting
-- Structured output to JSON
-
-Related writeup: [A quick note on input validation](../projects/sample-project.md).

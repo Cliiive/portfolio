@@ -1,13 +1,7 @@
 ---
-title: Hash Hound
-description: Small PoC scanning HTTP endpoints for simple command injection patterns.
+title: HashHound
+description: Automated forensic image scanner
 tags: Python, Forensics, TheSleuthKit
 ---
 
-This is a minimal project exploring request patterns that may trigger command injection in poorly validated endpoints.
-
-- Supports basic payload lists
-- Parallel scanning with rate limiting
-- Structured output to JSON
-
-Related writeup: [A quick note on input validation](../projects/sample-project.md).
+HashHound is a fast, automated forensic image scanner that recursively analyzes disk images, computes file hashes, and compares them against a database of known hashes. It helps investigators quickly identify known files and trace digital evidence. You can checkout the source code on GitHub [here](https://github.com/Cliiive/HashHound).
