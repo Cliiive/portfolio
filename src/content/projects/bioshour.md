@@ -1,7 +1,7 @@
 ---
-title: Minimal RCE Scanner
+title: Bios Hour
 description: Small PoC scanning HTTP endpoints for simple command injection patterns.
-tags: RCE, Go, HTTP
+tags: Flutter, Dart, Supabase
 ---
 
 This is a minimal project exploring request patterns that may trigger command injection in poorly validated endpoints.
@@ -10,4 +10,4 @@ This is a minimal project exploring request patterns that may trigger command in
 - Parallel scanning with rate limiting
 - Structured output to JSON
 
-Related writeup: [A quick note on input validation](../writeups/sample-writeup.md).
+Related writeup: [A quick note on input validation](../projects/sample-project.md).
