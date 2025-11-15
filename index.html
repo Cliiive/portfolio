@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0b0f14" />
     <title>Jonas Sasowski</title>
   </head>
-  <body>
+  <body class="bg-[#0b0f14] text-slate-200 antialiased">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <div id="root"></div>
+    <!-- Load polyfills before the app so Buffer exists at evaluation time -->
+    <script type="module" src="/src/polyfills.ts"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

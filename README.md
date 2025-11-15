@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# Minimal Cybersecurity Portfolio (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal, modern, dark-mode portfolio for a 20-year-old CS student focused on cybersecurity. Content-first design with zero flashy animations. Projects and writeups are loaded from Obsidian-exported Markdown files with support for images and internal links.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/pages`: About, Projects list/detail, Writeups list/detail
+- `src/components`: Nav, Tile
+- `src/content`: Markdown content
+  - `src/content/projects/*.md`
+  - `src/content/writeups/*.md`
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Content Workflow
+
+- Drop new Markdown files into `src/content/projects` or `src/content/writeups`.
+- Frontmatter (YAML) is supported:
+
+```md
+---
+title: My Project
+description: One-liner about the project
+tags: RCE, Postgres, C++
+---
+
+Body text in Markdown...
 ```
+
+- Internal links between items work using relative `.md` links:
+  - Example in a project: `../writeups/some-writeup.md`
+  - Example in a writeup: `../projects/some-project.md`
+- Images referenced in Markdown are supported when placed next to the `.md` file (relative paths) within `src/content/**`. They are resolved by the bundler.
+
+## Design Principles
+
+- Dark mode by default, professional and minimal
+- Clean typography and spacing
+- No playful aesthetics or animations
+
+## Routes
+
+- `/` — About
+- `/projects` — Projects / Blog
+- `/projects/:slug` — Project detail
+- `/writeups` — Writeups
+- `/writeups/:slug` — Writeup detail
+
+## Notes
+
+- Tech: React 19, Vite 6, Tailwind CSS 4, react-router, react-markdown, gray-matter
+- New Markdown files are auto-detected at dev/build time via `import.meta.glob`.
