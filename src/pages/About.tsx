@@ -8,7 +8,6 @@ export default function About() {
       
 A computer science student in Karlsruhe (currently 5th semester) exploring low-level systems, C++, and cyber security. I like understanding how things behave under the hood and why.
 Most of my time goes into trying out new C++ ideas, exploring systems, reading about exploitation techniques, or breaking my Arch installation for the 100th time because I wanted to tweak something.
-I tend to follow questions until I understand the underlying mechanics.      
       </p>
         <p className="leading-7 max-w-3xl" style={{ color: '#d5c4a1' }}>
       
