@@ -4,7 +4,7 @@ description: Break auth with the hammer!
 tags: JWT, Python, Improper Access Control, TryHackMe
 ---
 
-In this writeup, I'll describe in detail how I completed the CTF Challenge "Hammer" on TryHackMe. I'll describe what techniques I used, where I struggled, and what pitfalls I fell into, which I'll try to avoid in the future. This is my first writeup, so bear with me!
+In this writeup, I'll describe in detail how I completed the CTF Challenge ["Hammer" on TryHackMe](https://tryhackme.com/room/hammer). I'll describe what techniques I used, where I struggled, and what pitfalls I fell into, which I'll try to avoid in the future. This is my first writeup, so bear with me!
 
 So now let's get right into it!
 
