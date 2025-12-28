@@ -58,6 +58,8 @@ Interesting! A couple of open endpoints, especially the `/phpmyadmin` endpoint, 
 
 After looking at the page source of the login panel, I found an interesting developer comment:
 
+<!-- Dev Note: Directory naming convention must be hmr_DIRECTORY_NAME -->
+
 That's good to know! With that info, I decided to start another directory enumeration scan, this time with **ffuf**, to search specifically for this custom `hmr_` pattern.
 
 This is the `ffuf` command I used:
