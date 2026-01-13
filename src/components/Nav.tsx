@@ -38,7 +38,7 @@ export default function Nav() {
         </NavLink>
         <div className="hidden md:block ml-3 h-6 w-px" style={{ backgroundColor: '#3c3836' }} />
           <a
-          href="https://github.com/Cliiive"
+          href="https://github.com/c1ive"
           target="_blank"
           rel="noreferrer"
             className="hidden md:inline-flex p-2 hover:text-[#d79921]"
